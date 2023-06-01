@@ -9,8 +9,15 @@
         <option value="$PROJECT_DIR$/../../../JavaWeb/kjzl/资料/day04-Maven-SpringBootWeb入门/资料/Maven/04. 依赖管理-准备工作/maven-projectA/pom.xml" />
         <option value="$PROJECT_DIR$/../../../JavaWeb/kjzl/资料/day04-Maven-SpringBootWeb入门/资料/Maven/04. 依赖管理-准备工作/maven-projectB/pom.xml" />
         <option value="$PROJECT_DIR$/../../../JavaWeb/kjzl/资料/day04-Maven-SpringBootWeb入门/资料/Maven/04. 依赖管理-准备工作/maven-projectC/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot-web-quickstar/springboot-web-quickstar/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot-web-quickstart/springboot-web-quickstart/pom.xml" />
+        <option value="$PROJECT_DIR$/springcoot-web-quickstart/domo/pom.xml" />
       </list>
     </option>
+  </component>
+  <component name="PWA">
+    <option name="enabled" value="true" />
+    <option name="wasEnabledAtLeastOnce" value="true" />
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
