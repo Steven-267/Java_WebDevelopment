@@ -16,6 +16,7 @@ public class EmpController {
     @RequestMapping("/listEmp")
     public Result list(){
         List<Emp> empList = empService.listEmp();
+        //System.out.println("ggs-20230608");
 
 
         //3.响应数据
