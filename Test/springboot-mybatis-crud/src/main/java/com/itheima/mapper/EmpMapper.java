@@ -43,8 +43,15 @@ public interface EmpMapper {
     //方案三：开启myqatis的驼峰命名自动映射开关--- a column ------> aColumn
 
     //条件查询员工
-    @Select("select * from emp where name like concat('%',#{name},'%') and gender = #{gender} and" +
+/*    @Select("select * from emp where name like concat('%',#{name},'%') and gender = #{gender} and" +
             " entrydate between #{begin} and #{end} order by update_time desc ")
-    public List<Emp> list(String name, Short gender, LocalDate begin , LocalDate end
-    ) ;
+    public List<Emp> list(String name, Short gender, LocalDate begin , LocalDate end);*/
+
+
+    public List<Emp> list(String name, Short gender, LocalDate begin , LocalDate end);
+
+    //动态更新员工信息
+    public void update2(Emp emp);
+
+    public void deleteByIds(List<Integer> ids);
 }

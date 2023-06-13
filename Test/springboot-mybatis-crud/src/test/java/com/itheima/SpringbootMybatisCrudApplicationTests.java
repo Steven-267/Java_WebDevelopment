@@ -8,6 +8,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.Arrays;
 import java.util.List;
 
 @SpringBootTest
@@ -40,17 +41,12 @@ class SpringbootMybatisCrudApplicationTests {
     @Test
     public void testUpdate() {
         Emp emp = new Emp();
-        emp.setId(18);
-        emp.setUsername("Tom67");
-        emp.setName("汤姆67");
-        emp.setImage("1.jpg");
-        emp.setGender((short) 1);
-        emp.setJob((short)1);
-        emp.setEntrydate(LocalDate.of(2000, 1, 1));
-        emp.setUpdateTime(LocalDateTime.now());
-        emp.setDeptId(1);
-
-        empMapper.update(emp);
+//        emp.setId(20);
+        emp.setUsername("Tom676767");
+//        emp.setName("汤姆6767");
+//        emp.setGender((short)2);
+//        emp.setUpdateTime(LocalDateTime.now());
+        empMapper.update2(emp);
     }
 
     @Test
@@ -60,8 +56,12 @@ class SpringbootMybatisCrudApplicationTests {
     }
     @Test
     public void testList(){
-        List<Emp> empList = empMapper.list("张", (short) 1, LocalDate.of(2010, 1, 1),
-                LocalDate.of(2020, 1, 1));
+        List<Emp> empList = empMapper.list(null, (short) 1, null,null);
         System.out.println(empList);
+    }
+    @Test
+    public void testDeleteByIds(){
+        List<Integer> ids = Arrays.asList(13,14,15);
+        empMapper.deleteByIds(ids);
     }
 }
