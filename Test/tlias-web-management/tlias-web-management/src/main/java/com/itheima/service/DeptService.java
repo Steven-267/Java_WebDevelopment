@@ -14,4 +14,9 @@ public interface DeptService {
 
     //新增部门
     void add(Dept dept);
+
+    //根据id更新部门
+    Dept getById(Integer id);
+
+    void update(Dept dept);
 }

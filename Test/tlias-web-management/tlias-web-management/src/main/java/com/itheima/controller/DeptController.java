@@ -48,4 +48,24 @@ public class DeptController {
         deptService.add(dept);
         return Result.success();
     }
+
+    //更新前需要根据id找到部门
+    @GetMapping("/{id}")
+    public Result getById(@PathVariable Integer id){
+        log.info("根据{}找到部门",id);
+        Dept dept = deptService.getById(id);
+        return Result.success(dept);
+    }
+
+
+
+    @PutMapping
+    public Result update(@RequestBody Dept dept){
+        log.info("更新 {} 部门");
+        deptService.update(dept);
+        return Result.success();
+
+    }
+
+
 }
