@@ -17,9 +17,8 @@ public class EmpServiceImpl implements EmpService {
 
    @Autowired
     private EmpMapper empMapper;
-/*    @Override
+    @Override
     public PageBean page(Integer page, Integer pageSize) {
-
         //调用Mapper方法获取总页数和列表数据
         Long count = empMapper.count();
         Integer start = (page-1)*pageSize;
@@ -27,14 +26,12 @@ public class EmpServiceImpl implements EmpService {
         PageBean pageBean = new PageBean(count, empList);
         return pageBean;
 
-    }*/
-@Override
+    }
+/*@Override
 public PageBean page(Integer page, Integer pageSize) {
 
     //1.设置分页参数
     PageHelper.startPage(page,pageSize);
-
-
     //2.执行查询
     List<Emp> empList = empMapper.list();
     Page<Emp> p = (Page<Emp>) empList; //把列表交给类Page处理 Page会根据传入的empList
@@ -43,5 +40,5 @@ public PageBean page(Integer page, Integer pageSize) {
     PageBean pageBean = new PageBean(p.getTotal(),p.getResult());
     return pageBean;
 
-}
+}*/
 }

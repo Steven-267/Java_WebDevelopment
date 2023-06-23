@@ -13,23 +13,14 @@ import org.springframework.web.bind.annotation.RestController;
 @Slf4j
 @RestController
 public class EmpController {
-
-
     @Autowired
     private EmpService empService;
-
-
     @GetMapping("/emps")
     public Result page(@RequestParam(defaultValue = "1") Integer page,
-                        @RequestParam(defaultValue = "10") Integer pageSize){
-        log.info("分页查询,参数：{} {}",page,pageSize);
+                        @RequestParam(defaultValue = "5") Integer pageSize){
+        log.info("分页查询,参数：{} ,{}",page,pageSize);
         //调用service层
          PageBean pageBean =empService.page(page, pageSize);
-
           return Result.success(pageBean);
-
-
     }
-
-
 }
