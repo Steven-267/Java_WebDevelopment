@@ -8,8 +8,11 @@ import com.itheima.pojo.PageBean;
 import com.itheima.service.EmpService;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -17,7 +20,7 @@ public class EmpServiceImpl implements EmpService {
 
    @Autowired
     private EmpMapper empMapper;
-    @Override
+ /*   @Override
     public PageBean page(Integer page, Integer pageSize) {
         //调用Mapper方法获取总页数和列表数据
         Long count = empMapper.count();
@@ -25,20 +28,38 @@ public class EmpServiceImpl implements EmpService {
         List<Emp> empList = empMapper.page(start, pageSize);
         PageBean pageBean = new PageBean(count, empList);
         return pageBean;
-
-    }
-/*@Override
-public PageBean page(Integer page, Integer pageSize) {
+    }*/
+@Override
+public PageBean page(Integer page, Integer pageSize,
+                     String name,
+                     Short gender,
+                     LocalDate begin,
+                     LocalDate end) {
 
     //1.设置分页参数
     PageHelper.startPage(page,pageSize);
     //2.执行查询
-    List<Emp> empList = empMapper.list();
+    List<Emp> empList = empMapper.list(
+            name,
+            gender,
+            begin,
+            end);
     Page<Emp> p = (Page<Emp>) empList; //把列表交给类Page处理 Page会根据传入的empList
                                       // 有方法可以直接生成总数据数(p.getTotal)和列表数据(p.getResult)
     //3.封装PageBean对象
     PageBean pageBean = new PageBean(p.getTotal(),p.getResult());
     return pageBean;
+}
 
-}*/
+    @Override
+    public void delete(List<Integer> ids) {
+        empMapper.delete(ids);
+    }
+
+    @Override
+    public void save(Emp emp) {
+        emp.setCreateTime(LocalDateTime.now());
+        emp.setUpdateTime(LocalDateTime.now());
+        empMapper.insert(emp);
+    }
 }
