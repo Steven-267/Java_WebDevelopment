@@ -19,4 +19,6 @@ public interface EmpService {
 
     //新增员工
     void save(Emp emp);
+
+    Emp getById(Integer id);
 }

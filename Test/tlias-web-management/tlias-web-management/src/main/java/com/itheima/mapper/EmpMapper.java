@@ -11,6 +11,10 @@ import java.util.List;
 @Mapper
 public interface EmpMapper {
 
+    //修改员工
+    @Select("select * from emp where id = #{id}")
+    public Emp getById(Integer id) ;
+
     @Select("select count(*) from emp")
     public Long count();
 

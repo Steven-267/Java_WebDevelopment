@@ -62,4 +62,10 @@ public PageBean page(Integer page, Integer pageSize,
         emp.setUpdateTime(LocalDateTime.now());
         empMapper.insert(emp);
     }
+
+    @Override
+    public Emp getById(Integer id) {
+        Emp emp = empMapper.getById(id);
+        return emp;
+    }
 }
