@@ -68,4 +68,10 @@ public PageBean page(Integer page, Integer pageSize,
         Emp emp = empMapper.getById(id);
         return emp;
     }
+
+    @Override
+    public void update(Emp emp) {
+        emp.setUpdateTime(LocalDateTime.now());
+        empMapper.update(emp);
+    }
 }

@@ -18,6 +18,14 @@ import java.util.List;
 public class EmpController {
     @Autowired
     private EmpService empService;
+
+    //修改员工
+    @PutMapping("/emps")
+    public Result update(@RequestBody Emp emp){
+        log.info("修改的员工id为：{}",emp.getId());
+        empService.update(emp);
+        return Result.success();
+    }
     @GetMapping("/emps")
     public Result page(@RequestParam(defaultValue = "1") Integer page,
                        @RequestParam(defaultValue = "5") Integer pageSize,
